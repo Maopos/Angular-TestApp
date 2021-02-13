@@ -1,0 +1,22 @@
+.altoPrecio{
+    color: red;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 300;
+}
+
+.fondoRojo{
+    background: rgb(245, 139, 139);
+}
+
+.fondoAzul{
+    background: rgb(159, 159, 250);
+}
+
+.activado {
+    border: 3px solid #ccc;
+}
+
+body {
+    width: 80%;
+    margin: auto;
+}

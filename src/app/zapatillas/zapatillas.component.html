@@ -1,0 +1,58 @@
+<h2>{{titulo}}</h2>
+
+<hr>
+
+<p>Añadir marca.</p>
+<p><input type="text" [(ngModel)]="miMarca" (blur)="onBlur()" (keyup.enter)= "mostrarPalabra()"></p>
+<button (click)='getMarca()'>Mostrar.</button>
+<button (click)='addMarca()'>Añadir.</button>
+<p>{{miMarca}}</p>
+
+<hr>
+
+<p>Zapatillas de las mejores marcas: </p>
+    <ul>
+        <li *ngFor='let index of marcas'>{{index}}</li>
+        <button (click)='borrarMarca(miMarca)'>Borrar.</button>
+    </ul>
+
+<hr>
+
+<ol>
+    <li *ngFor="let index of zapatillas"> 
+        
+        <span [ngStyle]='{
+                    "text-decoration": !index.stock ? "line-through" : "none"
+        }'>{{index.marca}} {{index.nombre}} 
+        
+        <b [class.altoPrecio] = "index.precio > 300000"
+           [ngClass]="{
+               'fondoRojo': index.precio > 200000,
+               'fondoAzul': index.precio <= 200000
+            }"
+            
+            >$ {{index.precio}}</b></span>
+        
+
+
+        <span *ngIf='index.precio <= 160000' style="color: green;"> En oferta!!</span>
+        <span *ngIf='!index.stock' style="color: rgb(255, 2, 2);"> No disponible!!</span>
+        
+        
+
+    </li>
+</ol>
+
+<p>El color de las zapatillas es:</p>
+<p><input type="text" [(ngModel)]="color"></p>
+
+<ul [ngSwitch]='color'>
+    <li *ngSwitchCase="'yellow'"><span style="color: yellow; background: black; padding: 5px 40px;">El color predominante es el amarillo.</span> </li>
+    <li *ngSwitchCase="'red'"><span style="color: red; background: black; padding: 5px 40px;">El color predominante es el rojo.</span> </li>
+    <li *ngSwitchCase="'blue'"><span style="color: blue; background: rgb(182, 177, 177); padding: 5px 40px;">El color predominante es el azul.</span> </li>
+    <li *ngSwitchCase="'black'"><span style="color: black; background: black; padding: 5px 40px;">El color predominante es el negro.</span> </li>
+    <li *ngSwitchCase="'white'"><span style="color: white; background: black; padding: 5px 40px;">El color predominante es el blanco.</span> </li>
+</ul>
+
+<br>
+

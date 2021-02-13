@@ -1,0 +1,26 @@
+<h2>Contacto.</h2>
+
+<form #formContacto='ngForm' (ngSubmit)=onSubmit()>
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" name="nombre" #nombre='ngModel' [(ngModel)]='usuario.nombre' required pattern="[a-zA-Z]+">
+    <span *ngIf='nombre.touched && !nombre.valid' style="color: red;"> Escribe tu Nombre, debe contener letras solamente.</span>
+    <br><br>
+
+    <label for="apellidos">Apellidos:</label><br>
+    <input type="text" name="apellidos" #apellidos='ngModel' [(ngModel)]='usuario.apellidos' required pattern="[a-zA-Z]+">
+    <span *ngIf='apellidos.touched && !apellidos.valid' style="color: red;"> Escribe tus Apellidos, debe contener letras solamente.</span>
+    <br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" #email='ngModel' [(ngModel)]='usuario.email' required>
+    <span *ngIf='email.touched && !email.valid' style="color: red;"> Escribe correctamente tu Email.</span>
+    <br><br>
+
+    <label for="mensaje">Mensaje:</label><br>
+    <textarea name="mensaje" id="" cols="30" rows="10" #mensaje='ngModel' [(ngModel)]='usuario.mensaje' required></textarea>
+    <span *ngIf='mensaje.touched && !mensaje.valid' style="color: red;"> Escribe tu Mensaje.</span>
+    <br><br>
+    
+
+    <input type="submit" [disabled]='!formContacto.form.valid'>
+</form>
